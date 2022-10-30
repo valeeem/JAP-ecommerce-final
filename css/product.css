@@ -1,0 +1,42 @@
+h1 {
+    align-self: center;
+    text-align: center;
+    text-decoration: double
+}
+
+p {
+    text-align: center;
+    color: black;
+}
+
+input {
+    align-self: center;
+    align-content: center;
+}
+
+h2{
+    align-self: center;
+    text-align: center;
+}
+
+.mb-1{
+    text-align: center;
+}
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+#buscar{
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-color: #f8f9fb;
+    border-radius: 5px;
+    border-style:groove
+}

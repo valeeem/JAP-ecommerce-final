@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/cart.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="principal.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="mail" data-bs-toggle="dropdown"
+                aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href=# onclick="cerrarSesion()">Cerrar sesión</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div class="text-center p-4">
+        <h2>Carrito de Compras</h2>
+      </div>
+    </div>>
+    <div class="container" id="contenedor" styles="border-bottom: 1px solid #C00;">
+      <div class="container">
+        <h4>Artículos a comprar</h4>
+      </div>
+      <div>
+        <div class="container col" id="titulos">
+          <ul class="horizontal" id="nombre">Nombre</ul>
+          <ul class="horizontal" id="costo">Costo</ul>
+          <ul class="horizontal" id="cantidad">Cantidad</ul>
+          <ul class="horizontal" id="subtotal1">Subtotal</ul>
+          <br>
+        </div>
+        <hr>
+      </div>
+      <div class="container row" id="insertar"></div>
+      <hr>
+    </div>
+    
+    <div class="container" id="contenedor">
+      <h4>Tipo de envío</h4>
+      <div class="custom-control custom-radio">
+        <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" value="0.15"
+          onchange="actualizarTasa(this.value)" checked>
+        <label class="custom-control-label" for="goldradio">Premium 2 a 5 días (15%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" value="0.07"
+          onchange="actualizarTasa(this.value)">
+        <label class="custom-control-label" for="premiumradio">Express 5 a 8 días (7%)</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" value="0.03"
+          onchange="actualizarTasa(this.value)">
+        <label class="custom-control-label" for="standardradio">Standard 12 a 15 días (3%)</label>
+      </div>
+      <br>
+      <div class="container">
+        <h4>Dirección de Envío</h4>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <div class="container">
+              <label for="calle">Calle</label>
+              <input type="textarea" name="calle" id="calle" required>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div class="container">
+              <label for="numero">Número</label>
+              <input type="textarea" name="numero" id="numero" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <div class="container">
+              <label for="direccion3">Esquina</label>
+              <input type="textarea" name="direccion3" id="esquina" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    </div>
+    <div class="container">
+      <div class="container">
+        <h4>Costos</h4>
+        <div>
+          <div class="container">
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Subtotal</h6>
+                  <small class="text-muted">Costo unitario del producto por cantidad</small>
+                  <div id="sub"></div>
+                </div>
+                <span class="text-muted" id="productCostText"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Costo de envío</h6>
+                  <small class="text-muted">Según el tipo de envío</small>
+                  <div id="tasa"></div>
+                </div>
+                <span class="text-muted" id="comissionText"></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Total ($)</span>
+                <strong id="totalCostText">-</strong>
+              </li>
+            </ul>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="container">
+        <h4>Forma de Pago</h4>
+        <div class="col">
+          <div id="insertarPago"></div><button type="button" class="m-1 btn btn-link" data-bs-toggle="modal"
+            data-bs-target="#contidionsModal">Seleccionar</button>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <div class="container">
+          <button type="submit" name="finalizarcompra" data-toggle="modal" id="finalizarcompra">Finalizar
+            Compra</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
+        2022</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Formas de Pago</h5>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="custom-control custom-radio">
+                <input id="tarjeta" name="modopago" type="radio" class="custom-control-input">
+                <label class="custom-control-label" for="tarjeta">Tarjeta de crédito</label>
+                <hr>
+                <div class="col-md-3 mb-3">
+                  <label class="col" for="calle">N° de Tarjeta</label>
+                  <input type="textarea" name="numeroTarjeta" id="numeroTarjeta">
+                  <div class="invalid-feedback">
+                    Ingresar Información
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="col" for="cod">Cod. de Seguridad</label>
+                  <input type="textarea" name="cod" id="cod">
+                  <div class="invalid-feedback">
+                    Ingresar Información
+                  </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="col" for="vencimiento">Vencimiento (MM/AA)</label>
+                  <input type="textarea" name="vencimiento" id="vencimiento">
+                  <div class="invalid-feedback">
+                    El costo debe ser mayor que 0.
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div>
+                  <input id="transferencia" name="modopago" type="radio" class="custom-control-input">
+                  <label class="custom-control-label" for="transferencia">Transferencia bancaria</label>
+                  <hr>
+                </div>
+                <div class="col-md-3 mb-3">
+                  <label class="col" for="calle">N° de Cuenta</label>
+                  <input type="textarea" name="cuenta" id="cuenta" class="row">
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
